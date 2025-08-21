@@ -94,7 +94,13 @@ The application will be available at:
 - **Swagger Documentation**: http://localhost:3000/api
 - **RabbitMQ Management**: http://localhost:15672 (guest/guest)
 
-![](./swagger.png)
+![](./assets/swagger.png)
+
+## RabbitMQ Monitoring
+
+You can monitor the message queues, exchanges, and processing through the RabbitMQ Management interface:
+
+![](./assets/rabbitmq.png)
 
 ## API Endpoints
 
@@ -249,6 +255,12 @@ The application includes comprehensive error handling:
   - Database operations
   - API requests and responses
   - Error conditions
+
+### Enhanced Logging
+
+The application provides comprehensive logging for producer and consumer operations:
+
+![](./assets/logs.png)
 
 ## Docker Support (Optional)
 

@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: iot-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: iot-data-management
+    networks:
+      - iot-network
+
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    container_name: iot-rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - iot-network
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+volumes:
+  mongodb_data:
+  rabbitmq_data:
+
+networks:
+  iot-network:
+    driver: bridge

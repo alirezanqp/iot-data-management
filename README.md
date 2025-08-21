@@ -94,6 +94,8 @@ The application will be available at:
 - **Swagger Documentation**: http://localhost:3000/api
 - **RabbitMQ Management**: http://localhost:15672 (guest/guest)
 
+![](./swagger.png)
+
 ## API Endpoints
 
 ### Signals Management

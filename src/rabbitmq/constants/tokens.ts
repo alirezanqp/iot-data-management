@@ -1,0 +1,1 @@
+export const MESSAGE_QUEUE_TOKEN = Symbol("MESSAGE_QUEUE_TOKEN");
